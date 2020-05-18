@@ -1,3 +1,51 @@
 <!--miniprogram/pages/index/index.wxml-->
-<text>miniprogram/pages/index/index.wxml</text>
-<van-button type="primary">主要按钮</van-button>
+<view>多肉识别
+</view>
+<van-tabbar active="{{ active }}" inactive-color="#515151" active-color="#07c160" bind:change="onChange">
+  <van-tabbar-item name="distinguish">
+    <image
+      slot="icon"
+      src="../../images/distinguish1.png"
+      mode="aspectFit"
+      style="width: 30px; height: 18px;"
+    />
+    <image
+      slot="icon-active"
+      src="../../images/distinguish2.png"
+      mode="aspectFit"
+      style="width: 30px; height: 18px;"
+    />
+    识别
+  </van-tabbar-item>
+  <van-tabbar-item name="illustrate">
+    <image
+        slot="icon"
+        src="../../images/illustrate1.png"
+        mode="aspectFit"
+        style="width: 30px; height: 18px;"
+      />
+      <image
+        slot="icon-active"
+        src="../../images/illustrate2.png"
+        mode="aspectFit"
+        style="width: 30px; height: 18px;"
+      />
+      图鉴
+    </van-tabbar-item>
+  <van-tabbar-item name="share">
+    <image
+        slot="icon"
+        src="../../images/share1.png"
+        mode="aspectFit"
+        style="width: 30px; height: 18px;"
+      />
+      <image
+        slot="icon-active"
+        src="../../images/share2.png"
+        mode="aspectFit"
+        style="width: 30px; height: 18px;"
+      />
+      分享
+      </van-tabbar-item>
+  <van-tabbar-item icon="friends-o" name="our">我们</van-tabbar-item>
+</van-tabbar>
