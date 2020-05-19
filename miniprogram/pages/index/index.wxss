@@ -1,1 +1,41 @@
 /* miniprogram/pages/index/index.wxss */
+.index_top {
+  display: flex;
+  flex-flow: row;
+}
+.index_top image {
+  width: 205px;
+  height: 366px;
+  object-fit: contain;
+}
+
+.index_button {
+  width: 155px;
+  height: 45px;
+  color: #ffffff;
+  background-color:#2fd77c;
+  border: none;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+}
+.button_img {
+  width: 20px;
+  height: 16px;
+}
+.button_msg {
+  font-size: 16px;
+  width: 65px;
+  display: flex;
+  justify-content: center;
+  padding-left: 7px;
+}
+.from_album {
+  display: flex;
+  justify-content: center;
+  color: lightgrey;
+  font-size: 12px;
+  margin-top: 20px;
+}
