@@ -1,66 +1,57 @@
 // miniprogram/pages/illustrate/illustrate.js
+const db = wx.cloud.database();
+const $ = db.command.aggregate;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    value: '',
+    family_data: []
   },
-
+  onChange(e) {
+    this.setData({
+      value: e.detail,
+    });
+  },
+  onClick(e) {
+    console.log(this.data.value)
+  },
+  load_img_family() {
+    db.collection('succulent_plants').aggregate()
+      .sort({ family: 1})
+      .sort({ genus: 1 })
+      .sort({ name: 1 })
+      .group({
+        _id: '$family',
+        img: $.first('$img')
+      })
+      .end()
+      .then(res => {
+        this.setData({
+          family_data: res.list
+        })
+      })
+      .catch(err => {
+        wx.showToast({
+          icon: 'none',
+          title: '图片加载失败',
+        })
+        console.error('图片加载失败', err);
+      })
+  },
+  goto_genus(e) {
+    let family = e.currentTarget.dataset.family;
+    console.log("family:", family);
+    wx.navigateTo({
+      url: '../genus/genus?family=' + family,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onLoad() {
+    this.load_img_family();
   }
 })

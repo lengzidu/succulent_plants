@@ -1,11 +1,32 @@
 /* miniprogram/pages/index/index.wxss */
+.title {
+  font-size: 50px;
+  font-weight: 600;
+  width: 50px;
+  color: green;
+}
+.title_duo {
+  transform: rotate(-7deg);
+}
+.title_rou {
+  transform: translate(80rpx) rotate(7deg);
+}
+.title_shi {
+  transform: translate(130rpx, 20px);
+}
+.title_bie {
+  transform: translate(160rpx, 40px) rotate(8deg);
+}
+
 .index_top {
+  width: 100%;
+  max-width: 375px;
   display: flex;
   flex-flow: row;
 }
 .index_top image {
-  width: 205px;
-  height: 366px;
+  width: 62%;
+  height: 380px;
   object-fit: contain;
 }
 
@@ -37,5 +58,5 @@
   justify-content: center;
   color: lightgrey;
   font-size: 12px;
-  margin-top: 20px;
+  margin: 20px 0;
 }

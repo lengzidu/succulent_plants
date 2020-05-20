@@ -1,2 +1,29 @@
 <!--miniprogram/pages/illustrate/illustrate.wxml-->
-<text>miniprogram/pages/illustrate/illustrate.wxml</text>
+<view>
+  <view>
+    <van-search
+    value="{{value}}"
+    placeholder="请输入搜索关键词"
+    use-action-slot
+    bind:change="onChange"
+    bind:search="onSearch"
+    >
+    <view slot="action" bind:tap="onClick">搜索</view>
+    </van-search>
+  </view>
+  <!--科-->
+  <view>
+    <view class="small_title">--- 科 Family ---</view>
+    <view>
+      <view class="illustrate">
+        <view  wx:for="{{family_data}}" wx:key="key" class="img_box" data-family="{{item._id}}"
+        bindtap="goto_genus">
+          <van-image  src="{{item.img}}" width="200rpx" height="200rpx" round use-loading-slot>
+            <van-loading slot="loading" type="spinner" size="20" vertical />
+          </van-image>
+          <view class="img_name">{{item._id}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

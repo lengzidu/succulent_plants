@@ -43,13 +43,42 @@
 		"game": {
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 0,
 			"list": [
 				{
 					"id": -1,
 					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide"
+					"pathName": "pages/databaseGuide/databaseGuide",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "pages/illustrate/illustrate",
+					"pathName": "pages/illustrate/illustrate",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/genus/genus",
+					"pathName": "pages/genus/genus",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/species/species",
+					"pathName": "pages/species/species",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/detail/detail",
+					"pathName": "pages/detail/detail",
+					"scene": null
 				}
 			]
 		}

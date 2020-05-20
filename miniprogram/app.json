@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/illustrate/illustrate",
     "pages/share/share",
-    "pages/our/our"
+    "pages/our/our",
+    "pages/genus/genus",
+    "pages/species/species",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -15,33 +18,36 @@
   "tabBar": {
     "color": "#515151",
     "selectedColor": "#07c160",
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "识别",
-      "iconPath": "images/distinguish1.png",
-      "selectedIconPath": "images/distinguish2.png"
-    },
-    {
-      "pagePath": "pages/illustrate/illustrate",
-      "text": "图鉴",
-      "iconPath": "images/illustrate1.png",
-      "selectedIconPath": "images/illustrate2.png"
-    },
-    {
-      "pagePath": "pages/share/share",
-      "text": "分享",
-      "iconPath": "images/share1.png",
-      "selectedIconPath": "images/share2.png"
-    },
-    {
-      "pagePath": "pages/our/our",
-      "text": "我们",
-      "iconPath": "images/our1.png",
-      "selectedIconPath": "images/our2.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "识别",
+        "iconPath": "images/distinguish1.png",
+        "selectedIconPath": "images/distinguish2.png"
+      },
+      {
+        "pagePath": "pages/illustrate/illustrate",
+        "text": "图鉴",
+        "iconPath": "images/illustrate1.png",
+        "selectedIconPath": "images/illustrate2.png"
+      },
+      {
+        "pagePath": "pages/share/share",
+        "text": "分享",
+        "iconPath": "images/share1.png",
+        "selectedIconPath": "images/share2.png"
+      },
+      {
+        "pagePath": "pages/our/our",
+        "text": "我们",
+        "iconPath": "images/our1.png",
+        "selectedIconPath": "images/our2.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "van-button": "@vant/weapp/button/index"
+    "van-image": "@vant/weapp/image/index",
+    "van-loading": "@vant/weapp/loading/index"
   }
 }

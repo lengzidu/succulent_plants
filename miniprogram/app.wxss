@@ -1,1 +1,29 @@
 /**app.wxss**/
+/**for illustrate, genus, species**/
+.small_title {
+  width: 100%;
+  text-align: center;
+  font-size: 26rpx;
+  color: grey;
+  margin: 8rpx 0;
+}
+.illustrate {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
+.img_box {
+  width: 250rpx;
+  height: 274rpx;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+}
+.img_name {
+  width: 100%;
+  text-align: center;
+  font-size: 28rpx;
+  margin-top: 6rpx; 
+}

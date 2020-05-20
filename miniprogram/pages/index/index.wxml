@@ -1,13 +1,20 @@
 <!--miniprogram/pages/index/index.wxml-->
-<view class="index_top">
-  <image src="cloud://mycloud2.6d79-mycloud2-1302182014/plant.png"></image>
-  <!-- <image src="../../../../../images/plant.png"></image> -->
-  <view>多肉识别</view>
-</view>
 <view>
-  <button class="index_button">
-  <image src="../../../../../images/photo.png" class="button_img"></image>
-  <view class="button_msg">拍照识别</view>
-</button>
+  <view class="index_top" wx:if="{{index_img}}">
+    <image src="{{index_img}}"></image>
+    <!-- <image src="../../../../../images/plant.png"></image> -->
+    <view class="title">
+      <view class="title_duo">多</view>
+      <view class="title_rou">肉</view>
+      <view class="title_shi">识</view>
+      <view class="title_bie">别</view>
+    </view>
+  </view>
+  <view>
+    <button class="index_button">
+    <image src="../../../../../images/photo.png" class="button_img"></image>
+    <view class="button_msg">拍照识别</view>
+  </button>
+  <view class="from_album">从相册上传 ></view>
+  </view>
 </view>
-<view class="from_album">从相册上传 ></view>

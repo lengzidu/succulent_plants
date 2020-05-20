@@ -1,0 +1,16 @@
+<!--miniprogram/pages/genus/genus.wxml-->
+<!--属-->
+<view>
+  <view class="small_title">--- 属 Genus ---</view>
+  <view>
+    <view class="illustrate">
+      <view wx:for="{{genus_data}}" wx:key="key" class="img_box" data-genus="{{item._id}}"
+      bindtap="goto_species">
+        <van-image  src="{{item.img}}" width="200rpx" height="200rpx" round use-loading-slot>
+          <van-loading slot="loading" type="spinner" size="20" vertical />
+        </van-image>
+        <view class="img_name">{{item._id}}</view>
+      </view>
+    </view>
+  </view>
+</view>
