@@ -7,13 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    family: '',
     genus_data: []
   },
-  load_img_genus() {
+  load_img_genus(family) {
     db.collection('succulent_plants').aggregate()
       .match({
-        family: this.data.family
+        family: family
       })
       .sort({ genus: 1 })
       .sort({ name: 1 })
@@ -35,6 +34,30 @@ Page({
         console.error('图片加载失败', err);
       })
   },
+  search_genus(genus) {
+    db.collection('succulent_plants').where({
+        genus: genus
+      })
+      .orderBy('name', 'asc')
+      .field({
+        genus: true,
+        img: true,
+      })
+      .limit(1)
+      .get()
+      .then(res => {
+        let s=[{
+          _id: res.data[0].genus,
+          img: res.data[0].img
+        }];
+        this.setData({
+          genus_data: s
+        })
+      })
+      .catch(err =>{
+        console.error('加载失败', err);
+      })
+  },
   goto_species(e) {
     let genus = e.currentTarget.dataset.genus;
     console.log("genus:", genus);
@@ -47,11 +70,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      family: options.family
-    })
-    this.load_img_genus();
-    console.log("this.data.family: ", this.data.family)
+    if (options.genus == undefined) {
+      this.load_img_genus(options.family);
+    }else {
+      this.search_genus(options.genus);
+    }
+    console.log("options.family: ", options.family)
   },
 
   /**

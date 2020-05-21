@@ -6,12 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    genus: '',
     species_data: []
   },
-  load_img_species() {
+  load_img_species(genus) {
     db.collection('succulent_plants').where({
-      genus: this.data.genus
+      genus: genus
     }).field({
       name: true,
       img: true
@@ -41,11 +40,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      genus: options.genus
-    })
-    this.load_img_species();
-    console.log("this.data.genus: ", this.data.genus)
+    this.load_img_species(options.genus);
+    console.log("options.genus: ", options.genus)
   },
 
   /**

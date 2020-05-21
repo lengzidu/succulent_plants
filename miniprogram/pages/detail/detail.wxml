@@ -1,2 +1,33 @@
 <!--miniprogram/pages/detail/detail.wxml-->
-<text>miniprogram/pages/detail/detail.wxml</text>
+<view class="detail">
+  <view class="detail_all">
+    <view class="detail_name">{{detail.name}}</view>
+    <view class="detail_family">{{detail.family}} {{detail.genus}}</view>
+    <van-image  src="{{detail.img}}" width="500rpx" height="500rpx" use-loading-slot>
+      <van-loading slot="loading" type="spinner" size="20" vertical />
+    </van-image>
+    <view class="detail_msg"><text space="emsp">  {{detail.message}}</text></view>
+    <view class="detail_nurture">
+      <view class="nuture">
+        <view>日照时间：</view>
+        <view class="picture"><van-rate readonly value="{{detail.sun}}" count="8"
+        icon="../../../../images/sun.png" void-icon="" /></view>
+      </view>
+      <view class="nuture">
+        <view>所需水分：</view>
+        <view class="picture"><van-rate readonly value="{{detail.water}}" count="8"
+        icon="../../../../images/water.png" void-icon="" /></view>
+      </view>
+    </view>
+    <view class="reference">
+      <view class="nuture">
+        <view class="buttom"><van-image src="../../../../images/sun.png" width="40rpx" height="40rpx"></van-image></view>
+        <text>:每日1小时</text>
+      </view>
+      <view class="nuture">
+        <view class="buttom"><van-image src="../../../../images/water.png" width="40rpx" height="40rpx"></van-image></view>
+        <text>:每月浇水1次</text>
+      </view>
+    </view>
+  </view>
+</view>

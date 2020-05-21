@@ -1,1 +1,44 @@
 /* miniprogram/pages/detail/detail.wxss */
+.detail {
+  background-color: lightslategrey;
+}
+.detail_all {
+  width: 90%;
+  margin: auto;
+  font-size: 32rpx;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.detail_name {
+  font-size: 44rpx;
+  font-weight: 600;
+  margin: 20rpx 0 10rpx 0;
+}
+.detail_family {
+  margin-bottom: 16rpx;
+}
+.detail_msg {
+  margin: 30rpx 0;
+}
+.detail_nurture {
+  width: 100%;
+  padding: 22rpx 0;
+  border-bottom: 2rpx solid;
+}
+.nuture {
+  display: flex;
+  padding: 2rpx 0;
+}
+.picture {
+  transform: translate(-16rpx, 2rpx);
+}
+.reference {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 26rpx 0;
+}
+.buttom {
+  transform: translate(0, 2rpx);
+}

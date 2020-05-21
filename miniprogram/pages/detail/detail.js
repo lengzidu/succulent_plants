@@ -6,16 +6,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name: '',
-    detail: []
+    detail: {}
   },
-  load_img_info() {
+  load_img_info(name) {
     db.collection('succulent_plants').where({
-      name: this.data.name
+      name: name
     }).get()
       .then(res => {
         this.setData({
-          detail: res.data
+          detail: res.data[0]
         })
         console.log("detail", this.data.detail);
       })
@@ -31,11 +30,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      name: options.name
-    })
-    this.load_img_info();
-    console.log("this.data.name: ", this.data.name)
+    this.load_img_info(options.name);
+    console.log("options.name: ", options.name)
   },
 
   /**
