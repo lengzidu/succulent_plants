@@ -3,7 +3,7 @@
   <view class="detail_all">
     <view class="detail_name">{{detail.name}}</view>
     <view class="detail_family">{{detail.family}} {{detail.genus}}</view>
-    <van-image  src="{{detail.img}}" width="500rpx" height="500rpx" use-loading-slot>
+    <van-image  src="{{detail.img}}" width="500rpx" height="500rpx" use-loading-slot bindtap="click_img">
       <van-loading slot="loading" type="spinner" size="20" vertical />
     </van-image>
     <view class="detail_msg"><text space="emsp">  {{detail.message}}</text></view>

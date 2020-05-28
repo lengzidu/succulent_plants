@@ -1,7 +1,12 @@
 <!--miniprogram/pages/index/index.wxml-->
 <view>
-  <view class="index_top" wx:if="{{index_img}}">
-    <image src="{{index_img}}"></image>
+  <van-overlay show="{{ show }}"> 
+    <view class="loading">
+      <van-loading size="35px" vertical color="#fff" ><text style="color:#fff">正在识别中...</text></van-loading>
+      </view>
+  </van-overlay>
+  <view class="index_top">
+    <image src="cloud://mycloud2.6d79-mycloud2-1302182014/plant1.png"></image>
     <!-- <image src="../../../../../images/plant.png"></image> -->
     <view class="title">
       <view class="title_duo">多</view>
@@ -11,10 +16,11 @@
     </view>
   </view>
   <view>
-    <button class="index_button">
+    <button class="index_button" bindtap="from_camera">
     <image src="../../../../../images/photo.png" class="button_img"></image>
     <view class="button_msg">拍照识别</view>
-  </button>
-  <view class="from_album">从相册上传 ></view>
+    </button>
+    <view class="from_album" bindtap="from_album">从相册上传 ></view>
   </view>
+  <view class="icon van-icon van-icon van-icon-upgrade van-icon-upgrade" style="font-size: 32rpx;"></view>
 </view>

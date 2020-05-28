@@ -1,4 +1,10 @@
 /* miniprogram/pages/index/index.wxss */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
 .title {
   font-size: 50px;
   font-weight: 600;
@@ -34,7 +40,7 @@
   width: 155px;
   height: 45px;
   color: #ffffff;
-  background-color:#2fd77c;
+  background-color:#25d7a5;
   border: none;
   border-radius: 30px;
   display: flex;

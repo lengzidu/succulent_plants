@@ -1,1 +1,8 @@
 /* miniprogram/pages/our/our.wxss */
+/* .our_top {
+  heigiht: 350rpx;
+} */
+.swiper_img {
+  width: 100%;
+  height: 100%;
+}

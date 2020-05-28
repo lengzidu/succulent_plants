@@ -60,24 +60,48 @@
 					"id": -1,
 					"name": "pages/illustrate/illustrate",
 					"pathName": "pages/illustrate/illustrate",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "pages/genus/genus",
 					"pathName": "pages/genus/genus",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "pages/species/species",
 					"pathName": "pages/species/species",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "pages/detail/detail",
 					"pathName": "pages/detail/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/share/share",
+					"pathName": "pages/share/share",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/our/our",
+					"pathName": "pages/our/our",
 					"scene": null
 				}
 			]

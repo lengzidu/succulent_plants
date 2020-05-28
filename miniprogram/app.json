@@ -48,6 +48,10 @@
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "van-image": "@vant/weapp/image/index",
-    "van-loading": "@vant/weapp/loading/index"
+    "van-loading": "@vant/weapp/loading/index",
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-dialog": "@vant/weapp/dialog/index"
   }
 }

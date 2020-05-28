@@ -1,2 +1,80 @@
 <!--miniprogram/pages/share/share.wxml-->
-<text>miniprogram/pages/share/share.wxml</text>
+<view>
+  <view class="share_top">
+    <van-icon name="arrow-left" class="back" style="visibility:{{is_back?'':'hidden'}}" bindtap="back_all"/>
+    <view class="share_title"><text>{{is_back?'我的分享':'一起来分享'}}</text></view>
+    <button class="share_right" open-type="getUserInfo" bind:getuserinfo="onGetUserInfo"
+    style="background-color: {{is_back?'red':'#25d7a5'}}">
+      <view class="add" wx:if="{{is_back==false}}"><van-icon name="plus" /></view>
+      <view class="add" wx:if="{{is_back}}"><van-icon name="cross" /></view>
+    </button>
+  </view>
+  
+  <view class="main">
+    <van-checkbox-group value="{{ result }}" bind:change="onChange">
+      <view wx:for="{{all_info}}" wx:for-index="index" class="one">
+        <van-image src="{{item.headimg}}" width="100rpx" height="100rpx" round></van-image>
+        <view class="right">
+          <view class="top_nick">
+            <view class="nickname">{{item.nickname}}</view>
+            <van-checkbox name="{{item._id}}" checked-color="#25d7a5" style="visibility:{{is_back?'':'hidden'}}">
+            </van-checkbox>
+          </view>
+          <text class="sharetext">{{item.sharetext}}</text>
+          <view class="shareimg_box">
+            <van-image wx:for="{{item.shareimg}}" wx:for-item="initem"
+            src="{{initem}}" width="180rpx" height="180rpx" fit="cover"
+            lazy-load bindtap="click_img" data-urls="{{item.shareimg}}" data-url="{{initem}}">
+            </van-image>
+            <!-- <van-image src="{{item.shareimg[0]}}" wx:if="{{item.shareimg.length>0}}" width="180rpx" height="180rpx" lazy-load bind:click="click_img">
+            </van-image>
+            <van-image src="{{item.shareimg[1]}}" wx:if="{{item.shareimg.length>1}}" width="180rpx" height="180rpx" lazy-load>
+            </van-image>
+            <van-image src="{{item.shareimg[2]}}" wx:if="{{item.shareimg.length>2}}" width="180rpx" height="180rpx" lazy-load>
+            </van-image> -->
+          </view>
+          <view class="bottom">
+            <view class="time">{{item.time}}</view>
+            <view class="bottom_right">
+              <view>{{item.zan}}</view>
+              <van-icon name="good-job" color="{{item.is_zan?'#25d7a5':'#eee'}}" size="50rpx" class="zan"
+               bindtap="dian_zan" data-is_zan="{{item.is_zan}}" data-sid="{{item._id}}"data-index="{{index}}"/>
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-checkbox-group>
+  </view>
+
+  <van-popup
+  show="{{ show }}"
+  position="bottom"
+  custom-style="height: 70%;"
+  bind:close="onClose"
+  >
+    <view class="popup_box">
+      <view class="msg_box" bindtap="get_focus" >
+        <van-field
+          value="{{ message }}"
+          bind:change="input_change"
+          type="textarea"
+          autosize
+          position: fixed
+          focus="{{focus}}"
+          show-confirm-bar="{{false}}"
+          placeholder="请输入内容"
+          border="{{ false }}"
+          maxlength="150"
+        /> 
+      </view>
+      <view class="mid_box">
+        <van-uploader file-list="{{ fileList }}" max-count="3" bind:after-read="afterRead" 
+        bind:delete="delete_img"/>
+      </view>
+      
+        <button class="btn" bindtap="submit">提交</button>
+      
+    </view>
+  </van-popup>
+  <van-dialog id="van-dialog" />
+</view>

@@ -26,6 +26,12 @@ Page({
         console.error('信息加载失败', err);
       })
   },
+  click_img() {
+    wx.previewImage({
+      current: this.data.detail.img, // 需要预览的图片http链接列表
+      urls: [this.data.detail.img]
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

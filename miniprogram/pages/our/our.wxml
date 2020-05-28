@@ -1,2 +1,38 @@
 <!--miniprogram/pages/our/our.wxml-->
-<text>miniprogram/pages/our/our.wxml</text>
+<view>
+  <swiper indicator-dots="true" style="height: 444rpx"
+  autoplay="true" interval="3000" duration="1000">
+    <block wx:for="{{background}}" wx:key="*this">
+      <swiper-item>
+        <image src="{{item}}" class="swiper_img" bindtap="click_img" data-img="{{item}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view>
+  <van-cell title="我的分享" is-link size="large" bindtap="goto_my_share">
+    <van-icon name="wap-home" slot="icon" color="#25d7a5" style="margin-right: 14rpx" size="40rpx"></van-icon>
+  </van-cell>
+  <van-cell title="意见反馈" is-link size="large" bindtap="goto_contact">
+    <van-icon name="chat" slot="icon" color="#25d7a5" style="margin-right: 14rpx" size="40rpx"></van-icon>
+  </van-cell>
+  <van-cell title="当前版本(V2.0)" is-link value="更新日志" size="large" bindtap="show_edition">
+    <van-icon name="info" slot="icon" color="#25d7a5" style="margin-right: 14rpx" size="40rpx"></van-icon>
+  </van-cell>
+  <van-cell title="关于我们" is-link size="large" bindtap="show_our">
+    <van-icon name="manager" slot="icon" color="#25d7a5" style="margin-right: 14rpx" size="40rpx"></van-icon>
+  </van-cell>
+</view>
+
+<van-dialog id="van-dialog" />
+<van-dialog
+  use-slot
+  title="关于我们"
+  show="{{ show_our }}"
+  closeOnClickOverlay="true"
+>
+<view style="width:100%; text-align: center; margin-top:10rpx">
+  <image src="cloud://mycloud2.6d79-mycloud2-1302182014/ewm.jpg" style="width:80%" bindtap="click_ewm"/>
+</view>
+</van-dialog>
+
