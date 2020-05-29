@@ -14,8 +14,10 @@ Page({
       .match({
         family: family
       })
-      .sort({ genus: 1 })
-      .sort({ name: 1 })
+      .sort({
+         genus: 1,
+         name: 1
+      })
       .group({
         _id: '$genus',
         img: $.first('$img')

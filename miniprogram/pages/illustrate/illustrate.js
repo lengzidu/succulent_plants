@@ -36,12 +36,8 @@ Page({
   load_img_family(temp) {
     db.collection('succulent_plants').aggregate()
       .sort({
-        family: 1
-      })
-      .sort({
-        genus: 1
-      })
-      .sort({
+        family: 1,
+        genus: 1,
         name: 1
       })
       .group({
