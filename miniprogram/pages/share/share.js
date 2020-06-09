@@ -280,17 +280,22 @@ Page({
   },
   
   dian_zan(e) {
+    console.log("ert: ", this.data.all_info)
     var that = this;
     var e_is_zan = e.currentTarget.dataset.is_zan;
     var e_sid = e.currentTarget.dataset.sid;
     var e_index = e.currentTarget.dataset.index;
+    var nnumm = this.data.all_info[e_index].zan;
     var zan = !e_is_zan;
     var temp1 = "all_info[" + e_index + "].is_zan";
-    var temp2 = "all_info[" + e_index + "].num";
-    var num_temp = zan ? this.data.all_info[e_index].num + 1 : this.data.all_info[e_index].num - 1;
+    var temp2 = "all_info[" + e_index + "].zan";
+    console.log(e_index, nnumm);
+    var num_temp = zan ? nnumm + 1 : nnumm - 1;
+    console.log(num_temp);
     this.setData({
       [temp1]: zan,
       [temp2]: num_temp
+      // [temp2]: num_temp
       });
     if(zan) {
       db.collection('dian_zan').add({
@@ -307,8 +312,9 @@ Page({
       })
     }else {
       var myzan = this.data.my_zan;
-      console.log("myzan: ",myzan)
       for(let i = 0; i < myzan.length; i++) {
+        console.log("e_sid: ", e_sid);
+        console.log(myzan[i].sid == e_sid && myzan[i]._openid == that.data.openid);
         if (myzan[i].sid == e_sid && myzan[i]._openid == that.data.openid) {
           console.log("_id: ", myzan[i]._id)
           db.collection('dian_zan').doc(myzan[i]._id).remove()
@@ -321,7 +327,6 @@ Page({
             console.log("删除数据失败");
           })
         }
-        break;
       }
       
     }
@@ -332,7 +337,6 @@ Page({
       this.setData({
         my_zan: res.data
       })
-      console.log("sdf", this.data.my_zan);
       this.show_all(this.data.is_back);
     })
     .catch(err => {
@@ -344,11 +348,16 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      is_back: getApp().globalData.back,
-      openid: getApp().globalData.openid
+      is_back: getApp().globalData.back
     })
-    console.log("openid",this.data.openid);
-    this.get_my_zan();
+    //设置回调，防止小程序globalData拿到数据为null    
+    getApp().getopenid(res => {
+      console.log("write cb res", res)
+      this.setData({
+        openid: res
+      })
+      this.get_my_zan();
+    })
   },
 
   /**
