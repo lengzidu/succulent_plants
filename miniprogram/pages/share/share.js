@@ -208,6 +208,7 @@ Page({
   },
 
   show_all(is_back) {
+    console.log(this.data.is_back)
     var that = this;
     if(is_back) {
       db.collection('share').where({ _openid: this.data.openid }).orderBy('time', 'desc').get()
@@ -352,7 +353,6 @@ Page({
     })
     //设置回调，防止小程序globalData拿到数据为null    
     getApp().getopenid(res => {
-      console.log("write cb res", res)
       this.setData({
         openid: res
       })
@@ -375,6 +375,7 @@ Page({
     this.setData({
       is_back: getApp().globalData.back
     })
+    this.show_all(getApp().globalData.back);
   },
 
   /**

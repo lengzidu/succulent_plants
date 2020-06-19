@@ -25,11 +25,11 @@ Page({
     let temp = this.data.value.replace(/(^\s*)|(\s*$)/g, "");
     if (temp != "") {
       if (temp.substr(-1) == "科") {
-        this.load_img_family(temp);
+        this.load_img_family(temp);    //搜索该科
       } else if (temp.substr(-1) == "属") {
-        this.search_genus(temp);
+        this.search_genus(temp);      //搜索该属
       } else {
-        this.search_name(temp);
+        this.search_name(temp);       //搜索该名字
       }
     }
   },
