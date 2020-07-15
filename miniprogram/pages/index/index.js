@@ -52,6 +52,7 @@ Page({
             if (JSON.stringify(res.data.result) != "{}") {
               console.log("name: ", res.data.result.data[0].name);
               that.search_result(res.data.result.data[0].name);
+              // that.setData({ show: false });
             }else {
               that.setData({ show: false });
               wx.showToast({
